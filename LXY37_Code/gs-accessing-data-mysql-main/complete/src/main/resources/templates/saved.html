@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head> 
+    <title>Getting Started: Handling Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Saved</h1>
+    <p th:text="'name: ' + ${user.name}" />
+    <p th:text="'email: ' + ${user.email}" />
+    <a href="/user/add">Submit another message</a>
+    <a href="/user/all">View all data</a>
+    <form>
+        <table border="1" style="border-collapse:collapse;">
+            <thead>
+                <h1>数据库数据列表</h1>    
+            <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>email</th>
+           </tr>
+           </thead>
+            <tbody>
+            <tr th:each="user:${users}">
+            <td th:text="${user.id}">userid</td>
+            <td th:text="${user.name}">username</td>
+            <td th:text="${user.email}">useremail</td>
+            </tr>
+            </tbody>
+            </table>
+   </form>
+</body>
+</html>

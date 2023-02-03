@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <body>
+        <form action="#" th:action="@{/user/add}" th:object="${user}" method="post">
+            <h2 class="form-signin-heading">用 户 表 单</h2>
+            <table>
+                <tr>
+                    <td>Name:</td>
+                    <td><input type="text"  th:field="*{name}" /></td>
+                    <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td><input type="text"  th:field="*{email}" /></td>
+                    <td th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</td>
+                </tr>
+                <tr>
+                    <td><button type="submit">Submit</button></td><td><button type="reset">Reset</button></td>
+                    
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
